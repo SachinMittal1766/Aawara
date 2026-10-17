@@ -1,0 +1,4 @@
+import { NextResponse } from 'next/server'; import { z } from 'zod'; import { getWeather } from '@/lib/weather';
+export const dynamic = 'force-dynamic';
+const schema = z.object({ lat: z.coerce.number(), lon: z.coerce.number(), date: z.string().optional() });
+export async function GET(req: Request) { try { const parsed = schema.parse(Object.fromEntries(new URL(req.url).searchParams)); console.info('[weather]', { lat: parsed.lat, lon: parsed.lon, date: parsed.date || 'current' }); return NextResponse.json(await getWeather(parsed.lat, parsed.lon, parsed.date), { headers: { 'Cache-Control': 'no-store' } }); } catch (e) { console.error('[weather] provider error', { message: e instanceof Error ? e.message : 'unknown' }); return NextResponse.json({ error: 'Unable to retrieve weather right now.' }, { status: 502 }); } }

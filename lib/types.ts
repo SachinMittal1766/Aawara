@@ -1,0 +1,4 @@
+export type WeatherPoint = { time: string; temperature: number; rainProbability: number; precipitation: number; wind: number; code: number };
+export type Place = { id: string; name: string; category: string; address: string; lat: number; lon: number; openNow?: boolean; hours?: string; hoursSource?: string; website?: string; mapsUrl?: string; indoor: boolean; distanceKm?: number; rating?: number; };
+export type Recommendation = Place & { score: number; window: string; weather: WeatherPoint; reason: string; confidence: 'high' | 'medium' | 'low'; };
+export type Intent = { intent: 'best-time' | 'discover' | 'nearby' | 'plan'; query: string; area?: string; destination?: string; country?: string; category: string; date: string; indoor?: boolean; budget?: number; radiusKm?: number; durationHours?: number; preferences: string[]; };

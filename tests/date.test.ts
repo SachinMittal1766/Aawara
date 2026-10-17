@@ -1,0 +1,2 @@
+import { describe, expect, it } from 'vitest'; import { nextSunday, resolveDate } from '../lib/date';
+describe('relative dates', () => { it('resolves the next Sunday, not the current Sunday', () => { expect(nextSunday(new Date('2026-10-11T04:00:00Z'), 'Asia/Kolkata')).toBe('2026-10-18'); }); it('resolves tomorrow', () => expect(resolveDate('tomorrow', new Date('2026-10-15T00:00:00Z'))).toBe('2026-10-16')); });

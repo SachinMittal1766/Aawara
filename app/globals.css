@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #fbfaf6; color: #1e2a25; font-family: Arial, Helvetica, sans-serif; }
+button, input { font: inherit; }
+.grain { background-image: radial-gradient(rgba(49,90,72,.055) 0.8px, transparent .8px); background-size: 10px 10px; }
+.hero-glow { background: radial-gradient(circle at 12% 0%, rgba(236,245,228,.9), transparent 42%), radial-gradient(circle at 90% 10%, rgba(253,226,203,.55), transparent 32%); }
+.fade-up { animation: fadeUp .55s ease both; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
